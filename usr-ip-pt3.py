@@ -116,27 +116,27 @@ import requests
 # fetch_weather()
 
 
-# def fetch_city_weather(city):
-#     geo_url = f"https://geocoding-api.open-meteo.com/v1/search?name={city}&count=1"
-#     geo_data = requests.get(geo_url).json()
+def fetch_city_weather(city):
+    geo_url = f"https://geocoding-api.open-meteo.com/v1/search?name={city}&count=1"
+    geo_data = requests.get(geo_url).json()
 
-#     if not geo_data.get("results"):
-#         print("city not found or enter the correct spelling ")
-#         return
+    if not geo_data.get("results"):
+        print("city not found or enter the correct spelling ")
+        return
 
-#     lat = geo_data["results"][0]["latitude"]
-#     lon = geo_data["results"][0]["longitude"]
+    lat = geo_data["results"][0]["latitude"]
+    lon = geo_data["results"][0]["longitude"]
 
-#     weather_url = f"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&current_weather=true"
-#     weather = requests.get(weather_url).json()["current_weather"]
+    weather_url = f"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&current_weather=true"
+    weather = requests.get(weather_url).json()["current_weather"]
 
-#     print(f"{city}: {weather['temperature']}C")
-#     print(f"{city}: {weather['windspeed']}km/h")
+    print(f"{city}: {weather['temperature']}C")
+    print(f"{city}: {weather['windspeed']}km/h")
 
 
-# City = input("Enter correct city name ")
-# fetch_city_weather(City)
-#
+City = input("Enter correct city name ")
+fetch_city_weather(City)
+
 # Exercise 2: Add a function to search todos by completion status
 #             URL: https://jsonplaceholder.typicode.com/todos
 #             Params: completed=true or completed=false
@@ -164,7 +164,7 @@ def fetch_todos(completed, usr_id):
             f"ID: {todo['id']} | User: {todo['userId']} | {todo['title']} | Completed: {todo['completed']}"
         )
 
-fetch_todos(False, 1)   # should print results
-fetch_todos(True, 2)    # should print results
-fetch_todos(True, 1)    # may return none
 
+fetch_todos(False, 1)
+fetch_todos(True, 2)
+fetch_todos(True, 1)
